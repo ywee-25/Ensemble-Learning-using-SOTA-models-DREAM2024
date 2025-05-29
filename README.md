@@ -3,21 +3,24 @@ This projects made several modifications to the Source Codes, so you need to cor
    https://www.synapse.org/Synapse:syn61941777/wiki/629245
    https://www.synapse.org/Synapse:syn61914254/wiki/629194
    
-2. add files from the source project that are not in my project, do not overwrite.
-
+2. use the following files I provided to overwrite the original ones:
+   belfaction/src/tree_embeddings/experiments.py
+   D2Smell/data/processed/gt_with_dataset_V2_augmented_dataset.csv
+   D2Smell/train/mixture_regressor_test.py
+   
 3. now you can run all the codes. In case there is any important changed files I did not incorporate in my project, check the details about my modifications.
    
-   In the model1-belfaction/src/tree_embeddings/experiments.py, I added experiment_21_oof(), experiment_5_oof(), experiment_1_oof(), experiment_23_oof_feat(), experiment_23_leaderboard_feat() to generate oofs and feats,
+   In the experiments.py, I added experiment_21_oof(), experiment_5_oof(), experiment_1_oof(), experiment_23_oof_feat(), experiment_23_leaderboard_feat() to generate oofs and feats,
    and changed the apply_model() to avoid data leakage.
    
-   The model2-D2Smell/augmentation/gt_with_dataset_Original.csv and relevant output gt_with_dataset_V2_augmented_dataset.csv were changed to correct ones. Do not overwrite.
+   gt_with_dataset_V2_augmented_dataset.csv is a cleaned train set to avoid data leakage. **do not run Data_Augmentation.py again to overwrite it.**
 
-   model2-D2Smell/augmentation/mixture_regressor_test.py is a new file added.
+   mixture_regressor_test.py is a new file added.
    
 4. To run the codes in this project, you need to first generate from(at least):
-   model1-belfaction/src/tree_embeddings/experiments.py (experiment_23_oof_feat())
-   model2-D2Smell/augmentation/mixture_regressor_test.py
+   experiments.py (experiment_23_oof_feat())
+   mixture_regressor_test.py
 
-5. then you can run feature_process.py to process and concat features
+7. then you can run feature_process.py to process and concat features
 
 9. run stacking.py to get results from Quadratic Linear Stacking and Residual Stacking using LGBM
